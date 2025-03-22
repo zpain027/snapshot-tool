@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Ads Performance Snapshot - Winthrop Harriman Associates LLC</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; background: #f9f9f9; text-align: center; }
+    h1 { color: #1A73E8; font-size: 24px; }
+    p { color: #333; font-size: 16px; }
+    .form-container, .results { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 20px; }
+    input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    button { padding: 12px 20px; background: #1A73E8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+    button:hover { background: #1557b0; }
+    .results { display: none; text-align: left; }
+    .results h3 { color: #1A73E8; }
+    ul { list-style-type: disc; padding-left: 20px; }
+    footer { margin-top: 20px; font-size: 14px; color: #666; }
+    a { color: #1A73E8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Free Google Ads Performance Snapshot</h1>
+  <p>Enter your ad details for a quick performance check from Winthrop Harriman Associates LLC. Nationwide, no cost!</p>
+  
+  <div class="form-container">
+    <form id="snapshotForm" action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="hidden" name="_subject" value="New Google Ads Snapshot Submission">
+      <input type="hidden" name="_next" value="https://Winthrop-Harriman-Associates-LLC.github.io/snapshot-tool/thanks.html">
+      <label for="spend">Monthly Google Ads Spend ($):</label>
+      <input type="number" id="spend" name="spend" min="0" required placeholder="e.g., 5000">
+      
+      <label for="convRate">Conversion Rate (%):</label>
+      <input type="number" id="convRate" name="convRate" step="0.1" min="0" max="100" required placeholder="e.g., 2.5">
+      
+      <label for="aov">Average Order Value ($):</label>
+      <input type="number" id="aov" name="aov" min="0" required placeholder="e.g., 100">
+      
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required placeholder="e.g., you@company.com">
+      
+      <button type="submit">Get Your Snapshot</button>
+    </form>
+  </div>
+
+  <div class="results" id="results">
+    <h3>Your Google Ads Snapshot</h3>
+    <div id="output"></div>
+    <p><strong>Quick Tips to Boost ROI:</strong></p>
+    <ul>
+      <li>Use long-tail keywords (e.g., "buy shoes online") to cut costs by up to 20%.</li>
+      <li>Add remarketing to re-engage visitors—potential 30%-70% conversion lift.</li>
+      <li>Test 3-5 ad copies weekly to find winners—could boost CTR by 10%-50%.</li>
+    </ul>
+    <p><strong>Want More?</strong> Contact us at <a href="mailto:info@winthropharrimanassociates.com">info@winthropharrimanassociates.com</a> for a free consultation!</p>
+  </div>
+
+  <footer>
+    © 2025 Winthrop Harriman Associates LLC | Nationwide Online Services
+  </footer>
+
+  <script>
+    document.getElementById('snapshotForm').addEventListener('submit', function(e) {
+      const spend = parseFloat(document.getElementById('spend').value);
+      const convRate = parseFloat(document.getElementById('convRate').value) / 100;
+      const aov = parseFloat(document.getElementById('aov').value);
+
+      const clicks = spend / 1.5;
+      const revenue = convRate * clicks * aov;
+      const currentROI = ((revenue - spend) / spend * 100).toFixed(1);
+      const benchmarkROI = 100;
+
+      const output = `
+        <p><strong>Current Estimated ROI:</strong> ${currentROI}%</p>
+        <p><strong>Industry Benchmark:</strong> ${benchmarkROI}%+</p>
+        <p>Your ads could be underperforming—optimize to close the gap!</p>
+      `;
+      document.getElementById('output').innerHTML = output;
+      document.getElementById('results').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
